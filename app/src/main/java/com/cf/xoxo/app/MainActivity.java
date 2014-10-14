@@ -118,7 +118,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         if (id == R.id.action_about) {
             new AlertDialog.Builder(this)
                     .setTitle("C.F.xoxo")
-                    .setMessage("C.F.works出品，品质保证，童叟无欺\n版本")
+                    .setMessage("C.F.works出品，品质保证，童叟无欺\n版本v1.0")
                     .setPositiveButton("确定", null)
                     .show();
             return true;
