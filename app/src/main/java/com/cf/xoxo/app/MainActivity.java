@@ -118,7 +118,18 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         if (id == R.id.action_about) {
             new AlertDialog.Builder(this)
                     .setTitle("C.F.xoxo")
-                    .setMessage("C.F.works出品，品质保证，童叟无欺")
+                    .setMessage("C.F.works出品，品质保证，童叟无欺\n版本")
+                    .setPositiveButton("确定", null)
+                    .show();
+            return true;
+        }
+        if (id == R.id.action_setting) {
+            new AlertDialog.Builder(this)
+                    .setTitle("游戏规则说明")
+                    .setMessage("井字棋\n" +
+                            "游戏人数：2人\n" +
+                            "游戏流程：游戏双方轮流点击九宫格空白区域\n" +
+                            "胜利条件：任意一方的三个棋子连成一条直线得胜")
                     .setPositiveButton("确定", null)
                     .show();
             return true;
