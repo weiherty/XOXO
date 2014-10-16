@@ -31,6 +31,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     ImageButton b33;
     ImageButton back;
     Button bback;
+    Button bshow;
+    int xscore =0;
+    int oscore =0;
+    int escore =0;
     android.content.DialogInterface.OnClickListener listener;
 
     @Override
@@ -98,6 +102,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         bback.setTag("noback");
         bback.setText("不能再悔");
         bback.setBackgroundColor(Color.parseColor("#FFFFFF"));
+
+        bshow = (Button)findViewById(R.id.button3);
+        bshow.setText("游戏记录：XX赢"+xscore+"局，打平"+escore+"局，OO赢"+oscore+"局");
+
         cleanAll();
     }
 
@@ -189,6 +197,13 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         {
             res =2;
         }
+        else if(b11.getTag()!="unset"&&b12.getTag()!="unset"&&b13.getTag()!="unset"
+                &&b21.getTag()!="unset"&&b22.getTag()!="unset"&&b23.getTag()!="unset"
+                &&b31.getTag()!="unset"&&b32.getTag()!="unset"&&b33.getTag()!="unset"
+                )
+        {
+            res =3;
+        }
         else
         {
             res =0;
@@ -224,20 +239,37 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             back = (ImageButton) view;
             step++;
             if(checkWinner()==1) {
+                oscore++;
+                bshow.setText("游戏记录：XX赢"+xscore+"局，打平"+escore+"局，OO赢"+oscore+"局");
                 ImageView img = new ImageView(this);
                 img.setImageResource(R.drawable.oo);
                 new AlertDialog.Builder(this)
-                        .setTitle("OO win")
+                        .setTitle("OO IS WINNER")
                         .setView(img)
                         .setPositiveButton("重新开始", listener)
                         .show();
             }
             else if(checkWinner()==2)
             {
+                xscore++;
+                bshow.setText("游戏记录：XX赢"+xscore+"局，打平"+escore+"局，OO赢"+oscore+"局");
                 ImageView img = new ImageView(this);
                 img.setImageResource(R.drawable.xx);
                 new AlertDialog.Builder(this)
-                        .setTitle("XX win")
+                        .setTitle("XX IS WINNER")
+                        .setView(img)
+                        .setPositiveButton("重新开始", listener)
+                        .show();
+            }
+            else if(checkWinner()==3)
+            {
+                escore++;
+                bshow.setText("游戏记录：XX赢"+xscore+"局，打平"+escore+"局，OO赢"+oscore+"局");
+                //todo 画一个心形的图案
+                ImageView img = new ImageView(this);
+                img.setImageResource(R.drawable.xx);
+                new AlertDialog.Builder(this)
+                        .setTitle("XOXO play even")
                         .setView(img)
                         .setPositiveButton("重新开始", listener)
                         .show();
