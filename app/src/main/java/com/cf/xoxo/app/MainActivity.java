@@ -265,9 +265,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             {
                 escore++;
                 bshow.setText("游戏记录：XX赢"+xscore+"局，打平"+escore+"局，OO赢"+oscore+"局");
-                //todo 画一个心形的图案
                 ImageView img = new ImageView(this);
-                img.setImageResource(R.drawable.xx);
+                img.setImageResource(R.drawable.xin);
                 new AlertDialog.Builder(this)
                         .setTitle("XOXO play even")
                         .setView(img)
