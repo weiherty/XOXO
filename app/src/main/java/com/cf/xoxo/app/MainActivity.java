@@ -1,19 +1,16 @@
 package com.cf.xoxo.app;
 
-import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Build;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -21,7 +18,7 @@ import android.widget.ImageView;
 
 
 
-public class MainActivity extends ActionBarActivity implements View.OnClickListener {
+public class MainActivity extends Activity implements View.OnClickListener {
 
     static int step =0;
     ImageButton b11;
@@ -41,18 +38,18 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     int escore =0;
     android.content.DialogInterface.OnClickListener listener;
 
-    @TargetApi(Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         DisplayMetrics metric = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metric);
         int width = metric.widthPixels;     // 屏幕宽度（像素）
-        //int version = Integer.parseInt(Build.VERSION.SDK);
-        //if(version == Build.VERSION_CODES.KITKAT) {
-            //getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+        int version = Integer.parseInt(Build.VERSION.SDK);
+        if(version >= Build.VERSION_CODES.KITKAT) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             // getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-       // }
+        }
         setContentView(R.layout.activity_main);
 
         b11=(ImageButton)findViewById(R.id.imageButton);
@@ -117,42 +114,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         bshow.setText("游戏记录：XX赢"+xscore+"局，打平"+escore+"局，OO赢"+oscore+"局");
 
         cleanAll();
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_about) {
-            new AlertDialog.Builder(this)
-                    .setTitle("C.F.xoxo")
-                    .setMessage("C.F.works出品，品质保证，童叟无欺\n版本v1.0")
-                    .setPositiveButton("确定", null)
-                    .show();
-            return true;
-        }
-        if (id == R.id.action_setting) {
-            new AlertDialog.Builder(this)
-                    .setTitle("游戏规则说明")
-                    .setMessage("井字棋\n" +
-                            "游戏人数：2人\n" +
-                            "游戏流程：游戏双方轮流点击九宫格空白区域\n" +
-                            "胜利条件：任意一方的三个棋子连成一条直线得胜")
-                    .setPositiveButton("确定", null)
-                    .show();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     void cleanAll()
