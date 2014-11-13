@@ -25,18 +25,21 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:id="@+id/imageButton"
                 android:layout_column="0" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:id="@+id/imageButton2"
                 android:layout_column="1" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:id="@+id/imageButton3"
                 android:layout_column="2" />
         </TableRow>
@@ -47,18 +50,21 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:id="@+id/imageButton4"
                 android:layout_column="0" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:id="@+id/imageButton5"
                 android:layout_column="1" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:id="@+id/imageButton6"
                 android:layout_column="2" />
         </TableRow>
@@ -69,18 +75,21 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:id="@+id/imageButton7"
                 android:layout_column="0" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:id="@+id/imageButton8"
                 android:layout_column="1" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:id="@+id/imageButton9"
                 android:layout_column="2" />
         </TableRow>

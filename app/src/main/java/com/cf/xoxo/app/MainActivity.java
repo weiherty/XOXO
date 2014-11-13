@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -69,23 +70,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
         b32.setOnClickListener(this);
         b33.setOnClickListener(this);
         int bwidth = (width-2*dip2px(this,16))/3;
-        b11.setMinimumWidth(bwidth);
         b11.setMinimumHeight(bwidth);
-        b12.setMinimumWidth(bwidth);
         b12.setMinimumHeight(bwidth);
-        b13.setMinimumWidth(bwidth);
         b13.setMinimumHeight(bwidth);
-        b21.setMinimumWidth(bwidth);
         b21.setMinimumHeight(bwidth);
-        b22.setMinimumWidth(bwidth);
         b22.setMinimumHeight(bwidth);
-        b23.setMinimumWidth(bwidth);
         b23.setMinimumHeight(bwidth);
-        b31.setMinimumWidth(bwidth);
         b31.setMinimumHeight(bwidth);
-        b32.setMinimumWidth(bwidth);
         b32.setMinimumHeight(bwidth);
-        b33.setMinimumWidth(bwidth);
         b33.setMinimumHeight(bwidth);
 
         listener = new DialogInterface.OnClickListener() {
