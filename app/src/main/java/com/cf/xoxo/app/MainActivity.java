@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import me.drakeet.materialdialog.MaterialDialog;
 
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -31,6 +32,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     ImageButton b32;
     ImageButton b33;
     ImageButton back;
+    ImageButton about;
     Button bback;
     Button bshow;
     int xscore =0;
@@ -45,11 +47,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         getWindowManager().getDefaultDisplay().getMetrics(metric);
         int width = metric.widthPixels;     // 屏幕宽度（像素）
 
-        int version = Integer.parseInt(Build.VERSION.SDK);
-        if(version >= Build.VERSION_CODES.KITKAT) {
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            // getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-        }
+
         setContentView(R.layout.activity_main);
 
         b11=(ImageButton)findViewById(R.id.imageButton);
@@ -101,18 +99,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
         breset.setOnClickListener(this);
         breset.setTag("reset");
         breset.setText("重新开始");
-        breset.setBackgroundColor(Color.parseColor("#FFFFFF"));
 
 
         bback = (Button)findViewById(R.id.button2);
         bback.setOnClickListener(this);
         bback.setTag("noback");
         bback.setText("不能再悔");
-        bback.setBackgroundColor(Color.parseColor("#FFFFFF"));
 
         bshow = (Button)findViewById(R.id.button3);
         bshow.setText("游戏记录：XX赢"+xscore+"局，打平"+escore+"局，OO赢"+oscore+"局");
 
+        about = (ImageButton) findViewById(R.id.imageButton10);
+        about.setMinimumWidth(about.getHeight());
+        about.setTag("about");
+        about.setOnClickListener(this);
         cleanAll();
     }
 
@@ -198,6 +198,31 @@ public class MainActivity extends Activity implements View.OnClickListener {
             bback.setText("不能再悔");
             return;
         }
+        if(view.getTag()=="about")
+        {
+            final MaterialDialog mMaterialDialog = new MaterialDialog(this);
+
+            mMaterialDialog.setTitle("游戏说明")
+                    .setMessage("游戏开始后，玩家点击九个方格中的任意一个，方格中会显示O的图案，" +
+                            "此时换另一个玩家点击剩余的方格，方格中会显示X的图案，" +
+                            "如此轮流直到某一图案排成3个一竖、一横或一斜线，" +
+                            "否则则为平局。")
+                    .setPositiveButton("OK", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            mMaterialDialog.dismiss();
+                        }
+                    })
+                    .setNegativeButton("CANCEL", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            mMaterialDialog.dismiss();
+                        }
+                    });
+
+            mMaterialDialog.show();
+            return;
+        }
         if(view.getTag() =="unset") {
             if (step % 2 == 0) {
                 view.setTag("oo");
@@ -213,37 +238,70 @@ public class MainActivity extends Activity implements View.OnClickListener {
             if(checkWinner()==1) {
                 oscore++;
                 bshow.setText("游戏记录：XX赢"+xscore+"局，打平"+escore+"局，OO赢"+oscore+"局");
-                ImageView img = new ImageView(this);
-                img.setImageResource(R.drawable.oo);
-                new AlertDialog.Builder(this)
-                        .setTitle("OO IS WINNER")
-                        .setView(img)
-                        .setPositiveButton("重新开始", listener)
-                        .show();
+
+                final MaterialDialog mMaterialDialog = new MaterialDialog(this);
+                mMaterialDialog.setTitle("OO IS WINNER")
+                        .setMessage("Congratulations!")
+                        .setPositiveButton("RESTART", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                mMaterialDialog.dismiss();
+                                cleanAll();
+                            }
+                        })
+                        .setNegativeButton("CANCEL", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                mMaterialDialog.dismiss();
+                            }
+                        });
+                mMaterialDialog.show();
             }
             else if(checkWinner()==2)
             {
                 xscore++;
                 bshow.setText("游戏记录：XX赢"+xscore+"局，打平"+escore+"局，OO赢"+oscore+"局");
-                ImageView img = new ImageView(this);
-                img.setImageResource(R.drawable.xx);
-                new AlertDialog.Builder(this)
-                        .setTitle("XX IS WINNER")
-                        .setView(img)
-                        .setPositiveButton("重新开始", listener)
-                        .show();
+
+                final MaterialDialog mMaterialDialog = new MaterialDialog(this);
+                mMaterialDialog.setTitle("XX IS WINNER")
+                        .setMessage("Congratulations!")
+                        .setPositiveButton("RESTART", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                mMaterialDialog.dismiss();
+                                cleanAll();
+                            }
+                        })
+                        .setNegativeButton("CANCEL", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                mMaterialDialog.dismiss();
+                            }
+                        });
+                mMaterialDialog.show();
             }
             else if(checkWinner()==3)
             {
                 escore++;
                 bshow.setText("游戏记录：XX赢"+xscore+"局，打平"+escore+"局，OO赢"+oscore+"局");
-                ImageView img = new ImageView(this);
-                img.setImageResource(R.drawable.xin);
-                new AlertDialog.Builder(this)
-                        .setTitle("XOXO play even")
-                        .setView(img)
-                        .setPositiveButton("重新开始", listener)
-                        .show();
+
+                final MaterialDialog mMaterialDialog = new MaterialDialog(this);
+                mMaterialDialog.setTitle("XOXO play even")
+                        .setMessage("Congratulations!")
+                        .setPositiveButton("RESTART", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                mMaterialDialog.dismiss();
+                                cleanAll();
+                            }
+                        })
+                        .setNegativeButton("CANCEL", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                mMaterialDialog.dismiss();
+                            }
+                        });
+                mMaterialDialog.show();
             }
         }
     }

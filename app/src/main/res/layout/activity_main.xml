@@ -12,7 +12,6 @@
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/activity_vertical_margin"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -118,5 +117,15 @@
         android:layout_alignEnd="@+id/button2"
         android:background="@android:color/holo_blue_light"
         android:textColor="@android:color/white" />
+
+    <ImageButton
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/imageButton10"
+        android:background="@android:color/holo_blue_light"
+        android:src="@drawable/sbic2"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/button3" />
 
 </RelativeLayout>
