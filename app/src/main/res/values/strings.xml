@@ -4,5 +4,8 @@
     <string name="app_name">CF井</string>
     <string name="action_settings">设置</string>
     <string name="action_about">关于</string>
+    <string name="title_activity_main_activity2">MainActivity2</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="mode1name">正常模式</string>
 
 </resources>

@@ -3,4 +3,5 @@
     <string name="app_name">C.F.xoxo</string>
     <string name="action_about">about</string>
     <string name="action_settings">setting</string>
+    <string name="mode1name">normal mode</string>
 </resources>
