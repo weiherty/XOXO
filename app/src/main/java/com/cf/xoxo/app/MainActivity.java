@@ -8,6 +8,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import me.drakeet.materialdialog.MaterialDialog;
 
@@ -82,13 +83,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
         Button breset=(Button)findViewById(R.id.button);
         breset.setOnClickListener(this);
         breset.setTag("reset");
-        breset.setText("重新开始");
+        breset.setText(R.string.restart);
 
 
         bback = (Button)findViewById(R.id.button2);
         bback.setOnClickListener(this);
-        bback.setTag("noback");
-        bback.setText("不能再悔");
+        bback.setTag("no back");
+        bback.setText(R.string.noregret);
 
         bshow = (Button)findViewById(R.id.button3);
         bshow.setText("游戏记录：XX赢"+xscore+"局，打平"+escore+"局，OO赢"+oscore+"局");
@@ -178,8 +179,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
             back.setBackgroundResource(R.drawable.blank);
             back.setTag("unset");
             step--;
-            bback.setTag("noback");
-            bback.setText("不能再悔");
+            bback.setTag("no back");
+            bback.setText(R.string.noregret);
+            return;
+        }
+        if(view.getTag() =="no back")
+        {
+            Toast.makeText(this, "sorry,you can regret only once", Toast.LENGTH_LONG).show();
+            bback.setTag("no back");
+            bback.setText(R.string.noregret);
             return;
         }
         if(view.getTag()=="about")
@@ -207,7 +215,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
             mMaterialDialog.show();
             return;
         }
-        if(view.getTag() =="unset") {
+        if(view.getTag() =="unset")
+        {
             if (step % 2 == 0) {
                 view.setTag("oo");
                 view.setBackgroundResource(R.drawable.oo);
@@ -216,7 +225,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 view.setBackgroundResource(R.drawable.xx);
             }
             bback.setTag("back");
-            bback.setText("悔棋一步");
+            bback.setText(R.string.regret);
             back = (ImageButton) view;
             step++;
             if(checkWinner()==1) {

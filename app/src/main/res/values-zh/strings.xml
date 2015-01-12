@@ -4,4 +4,7 @@
     <string name="action_about">关于</string>
     <string name="action_settings">设置</string>
     <string name="mode1name">正常模式</string>
+    <string name="restart">重新开始</string>
+    <string name="noregret">不能再悔</string>
+    <string name="regret">悔棋一步</string>
 </resources>

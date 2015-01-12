@@ -4,4 +4,7 @@
     <string name="action_about">about</string>
     <string name="action_settings">setting</string>
     <string name="mode1name">normal mode</string>
+    <string name="restart">RESTART</string>
+    <string name="noregret">NO REGRET</string>
+    <string name="regret">REGRET</string>
 </resources>
