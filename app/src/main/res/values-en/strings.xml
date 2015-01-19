@@ -7,4 +7,12 @@
     <string name="restart">RESTART</string>
     <string name="noregret">NO REGRET</string>
     <string name="regret">REGRET</string>
+    <string name="cancel">CANCEL</string>
+    <string name="ok">OK</string>
+    <string name="gameover">GAME OVER</string>
+    <string name="oowin">Congratulates OO</string>
+    <string name="xxwin">Congratulates XX</string>
+    <string name="even">Congratulates play even</string>
+    <string name="instructions">Game instructions</string>
+    <string name="ins1">After the start of the game, any game player hit nine squares in a squared, O appears in the pattern, at this time for another game player clicks remaining grid, grid is displayed in the X pattern, so in turn until a pattern into a vertical row 3, a horizontal or oblique, or it is draw.</string>
 </resources>

@@ -7,4 +7,12 @@
     <string name="restart">重新开始</string>
     <string name="noregret">不能再悔</string>
     <string name="regret">悔棋一步</string>
+    <string name="cancel">取消</string>
+    <string name="ok">确定</string>
+    <string name="gameover">比赛结束</string>
+    <string name="oowin">恭喜OO获胜</string>
+    <string name="xxwin">恭喜XX获胜</string>
+    <string name="even">恭喜双方打平</string>
+    <string name="instructions">游戏说明</string>
+    <string name="ins1">游戏开始后，玩家点击九个方格中的任意一个，方格中会显示O的图案，此时换另一个玩家点击剩余的方格，方格中会显示X的图案，如此轮流直到某一图案排成3个一竖、一横或一斜线，否则则为平局。</string>
 </resources>

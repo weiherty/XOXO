@@ -194,18 +194,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
         {
             final MaterialDialog mMaterialDialog = new MaterialDialog(this);
 
-            mMaterialDialog.setTitle("游戏说明")
-                    .setMessage("游戏开始后，玩家点击九个方格中的任意一个，方格中会显示O的图案，" +
-                            "此时换另一个玩家点击剩余的方格，方格中会显示X的图案，" +
-                            "如此轮流直到某一图案排成3个一竖、一横或一斜线，" +
-                            "否则则为平局。")
-                    .setPositiveButton("OK", new View.OnClickListener() {
+            mMaterialDialog.setTitle(getString(R.string.instructions))
+                    .setMessage(getString(R.string.ins1))
+                    .setPositiveButton(getString(R.string.ok), new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             mMaterialDialog.dismiss();
                         }
                     })
-                    .setNegativeButton("CANCEL", new View.OnClickListener() {
+                    .setNegativeButton(getString(R.string.cancel), new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             mMaterialDialog.dismiss();
@@ -233,16 +230,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 bshow.setText("游戏记录：XX赢"+xscore+"局，打平"+escore+"局，OO赢"+oscore+"局");
 
                 final MaterialDialog mMaterialDialog = new MaterialDialog(this);
-                mMaterialDialog.setTitle("OO IS WINNER")
-                        .setMessage("Congratulations!")
-                        .setPositiveButton("RESTART", new View.OnClickListener() {
+                mMaterialDialog.setTitle(getString(R.string.gameover))
+                        .setMessage(getString(R.string.oowin))
+                        .setPositiveButton(getString(R.string.restart), new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 mMaterialDialog.dismiss();
                                 cleanAll();
                             }
                         })
-                        .setNegativeButton("CANCEL", new View.OnClickListener() {
+                        .setNegativeButton(getString(R.string.cancel), new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 mMaterialDialog.dismiss();
@@ -256,16 +253,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 bshow.setText("游戏记录：XX赢"+xscore+"局，打平"+escore+"局，OO赢"+oscore+"局");
 
                 final MaterialDialog mMaterialDialog = new MaterialDialog(this);
-                mMaterialDialog.setTitle("XX IS WINNER")
-                        .setMessage("Congratulations!")
-                        .setPositiveButton("RESTART", new View.OnClickListener() {
+                mMaterialDialog.setTitle(getString(R.string.gameover))
+                        .setMessage(getString(R.string.xxwin))
+                        .setPositiveButton(getString(R.string.restart), new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 mMaterialDialog.dismiss();
                                 cleanAll();
                             }
                         })
-                        .setNegativeButton("CANCEL", new View.OnClickListener() {
+                        .setNegativeButton(getString(R.string.cancel), new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 mMaterialDialog.dismiss();
@@ -279,16 +276,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 bshow.setText("游戏记录：XX赢"+xscore+"局，打平"+escore+"局，OO赢"+oscore+"局");
 
                 final MaterialDialog mMaterialDialog = new MaterialDialog(this);
-                mMaterialDialog.setTitle("XOXO play even")
-                        .setMessage("Congratulations!")
-                        .setPositiveButton("RESTART", new View.OnClickListener() {
+                mMaterialDialog.setTitle(getString(R.string.gameover))
+                        .setMessage(getString(R.string.even))
+                        .setPositiveButton(getString(R.string.restart), new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 mMaterialDialog.dismiss();
                                 cleanAll();
                             }
                         })
-                        .setNegativeButton("CANCEL", new View.OnClickListener() {
+                        .setNegativeButton(getString(R.string.cancel), new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 mMaterialDialog.dismiss();
